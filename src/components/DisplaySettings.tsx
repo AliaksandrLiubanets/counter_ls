@@ -4,6 +4,9 @@ type DisplaySettingsPropsType = {
 
 }
 
+
+// const disableReset = number === props.maxValue ? true : false
+
 function DisplaySettings(props: DisplaySettingsPropsType) {
     return <div className={s.window__frame}>
         <div className={s.window__large}>

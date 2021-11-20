@@ -27,10 +27,14 @@
 
 }
 
-.window__counter__number {
+.window__counter__number, .window__counter__number_red {
     color: #38eeee;
     font-size: 120px;
     font-weight: 600;
+}
+
+.window__counter__number_red {
+    color: red;
 }
 
 .window__small {

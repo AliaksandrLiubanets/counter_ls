@@ -19,6 +19,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         setNumber(0)
     }
 
+    const numStyle = `${number === props.maxValue ? s.window__counter__number_red : s.window__counter__number}`
     const incStyle = `${number === props.maxValue ? s.window__small__buttons_inc : undefined}`
     const resetStyle = `${number === props.minValue ? s.window__small__buttons_reset : undefined}`
     const disableInc = number === props.maxValue ? true : false
@@ -28,7 +29,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     return <div className={s.window__frame}>
         <div className={s.window__large}>
             <div className={s.window__counter}>
-                <div className={s.window__counter__number}>{number}</div>
+                <div className={numStyle}>{number}</div>
             </div>
 
         </div>
