@@ -53,4 +53,10 @@
     border: 1px solid #38eeee;
     border-radius: 10px;
     padding: 5px 20px;
+    cursor: pointer;
+}
+
+.window__small__buttons_inc, .window__small__buttons_reset {
+    opacity: 0.5;
+    cursor: none;
 }
