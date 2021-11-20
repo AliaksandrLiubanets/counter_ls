@@ -1,14 +1,15 @@
-import React from 'react';
-import './App.css';
-import Window from './components/Window'
+import React from 'react'
+import './App.css'
+import DisplayCounter from './components/DisplayCounter'
+import DisplaySettings from './components/DisplaySettings'
 
 function App() {
-  return (
-    <div className="App">
-      <Window />
-      <Window />
-    </div>
-  );
+    return (
+        <div className="App">
+            <DisplaySettings/>
+            <DisplayCounter/>
+        </div>
+    )
 }
 
-export default App;
+export default App

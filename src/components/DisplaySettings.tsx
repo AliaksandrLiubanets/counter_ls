@@ -1,12 +1,13 @@
 import s from '../styles/styles.module.css'
-type WindowPropsType = {
+
+type DisplaySettingsPropsType = {
 
 }
 
-function Window(props: WindowPropsType) {
+function DisplaySettings(props: DisplaySettingsPropsType) {
     return <div className={s.window__frame}>
         <div className={s.window__large}></div>
         <div className={s.window__small}></div>
     </div>
 }
-export default Window
+export default DisplaySettings

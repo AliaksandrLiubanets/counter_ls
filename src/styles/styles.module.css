@@ -8,14 +8,49 @@
 .window__frame, .window__large, .window__small {
     width: 500px;
     height: 370px;
-    border: 1px solid #38eeee;
+    border: 3px solid #38eeee;
     border-radius: 10px;
 }
 .window__large{
     width: 480px;
     height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .window__small{
     width: 480px;
     height: 120px;
+}
+
+.window__large__counter {
+
+}
+
+.window__large__number {
+    color: #38eeee;
+    font-size: 120px;
+    font-weight: 600;
+}
+
+.window__small {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window__small__buttons {
+    display: grid;
+    grid-column-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.window__small__buttons button {
+    font-size: 50px;
+    font-weight: 600;
+    color: #02023b;
+    background-color: #38eeee;
+    border: 1px solid #38eeee;
+    border-radius: 10px;
+    padding: 5px 20px;
 }
