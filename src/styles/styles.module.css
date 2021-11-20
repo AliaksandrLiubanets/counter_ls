@@ -1,9 +1,21 @@
-.window__frame{
+.window__frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
+.window__frame, .window__large, .window__small {
+    width: 500px;
+    height: 370px;
+    border: 1px solid #38eeee;
+    border-radius: 10px;
 }
 .window__large{
-
+    width: 480px;
+    height: 220px;
 }
 .window__small{
-
+    width: 480px;
+    height: 120px;
 }
