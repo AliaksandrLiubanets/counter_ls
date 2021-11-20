@@ -6,3 +6,7 @@
   justify-content: space-around;
 }
 
+input:focus {
+  outline: none
+}
+

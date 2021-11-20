@@ -27,8 +27,8 @@ function DisplayCounter(props: DisplayCounterPropsType) {
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
-            <div className={s.window__large__counter}>
-                <div className={s.window__large__number}>{number}</div>
+            <div className={s.window__counter}>
+                <div className={s.window__counter__number}>{number}</div>
             </div>
 
         </div>

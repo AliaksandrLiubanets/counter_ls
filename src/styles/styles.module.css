@@ -23,11 +23,11 @@
     height: 120px;
 }
 
-.window__large__counter {
+.window__counter {
 
 }
 
-.window__large__number {
+.window__counter__number {
     color: #38eeee;
     font-size: 120px;
     font-weight: 600;
@@ -59,4 +59,37 @@
 .window__small__buttons_inc, .window__small__buttons_reset {
     opacity: 0.5;
     cursor: none;
+}
+
+.window__settings {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 30px;
+
+}
+
+.window__settings__box {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-column-gap: 30px;
+}
+
+.window__settings__value {
+    color: #38eeee;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.window__settings input {
+    font-size: 30px;
+    width: 200px;
+    border: 1px solid #02023b;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+
+.window__input_error {
+    background-color: #a73a3a;
+    border: 2px solid red;
 }
