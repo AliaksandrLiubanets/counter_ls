@@ -6,6 +6,17 @@
   justify-content: space-around;
 }
 
+button {
+  font-size: 50px;
+  font-weight: 600;
+  color: #02023b;
+  background-color: #38eeee;
+  border: 1px solid #38eeee;
+  border-radius: 10px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
 input:focus {
   outline: none
 }

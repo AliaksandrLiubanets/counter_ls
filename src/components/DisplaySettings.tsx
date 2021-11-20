@@ -18,7 +18,9 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                 </div>
             </div>
         </div>
-        <div className={s.window__small}></div>
+        <div className={s.window__small}>
+            <div ><button className={undefined} disabled={undefined} onClick={() => {}}>set</button></div>
+        </div>
     </div>
 }
 export default DisplaySettings
