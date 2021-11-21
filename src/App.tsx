@@ -16,7 +16,7 @@ function App() {
     return (
         <div className="App">
             <DisplaySettings/>
-            <DisplayCounter maxValue={5} minValue={0}/>
+            <DisplayCounter maxValue={5} minValue={0} startValue={3}/>
         </div>
     )
 }

@@ -1,14 +1,16 @@
 import s from '../styles/styles.module.css'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 type DisplayCounterPropsType = {
     maxValue: number
     minValue: number
+    startValue: number
 }
 
 function DisplayCounter(props: DisplayCounterPropsType) {
 
-    const [number, setNumber] = useState(0)
+    const [number, setNumber] = useState<number>(props.startValue)
+
     const Increment = () => {
         if (number < props.maxValue) {
             setNumber(number + 1)
@@ -16,14 +18,14 @@ function DisplayCounter(props: DisplayCounterPropsType) {
 
     }
     const Reset = () => {
-        setNumber(0)
+        setNumber(props.startValue)
     }
 
     const numStyle = `${number === props.maxValue ? s.window__counter__number_red : s.window__counter__number}`
     const incStyle = `${number === props.maxValue ? s.window__small__buttons_inc : undefined}`
     const resetStyle = `${number === props.minValue ? s.window__small__buttons_reset : undefined}`
-    const disableInc = number === props.maxValue ? true : false
-    const disableReset = number === props.minValue ? true : false
+    const disableInc = number === props.maxValue
+    const disableReset = number === props.startValue ? true : false
 
 
     return <div className={s.window__frame}>

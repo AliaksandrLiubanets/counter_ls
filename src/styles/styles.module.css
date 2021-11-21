@@ -51,7 +51,7 @@
 
 .window__small__buttons_inc, .window__small__buttons_reset {
     opacity: 0.5;
-    cursor: none;
+    cursor: auto;
 }
 
 .window__settings {
