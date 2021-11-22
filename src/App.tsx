@@ -15,7 +15,7 @@ function App() {
     const setValueToStorage = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
         localStorage.setItem('startValue', JSON.stringify(startValue))
-        // setStartValue(6)
+        setStartValue(start)
     }
 
     return (
