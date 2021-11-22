@@ -3,19 +3,22 @@ import {useEffect, useState} from 'react'
 
 type DisplayCounterPropsType = {
     maxValue: number
-    minValue: number
     startValue: number
 }
 
 function DisplayCounter(props: DisplayCounterPropsType) {
 
-    const [number, setNumber] = useState<number>(props.startValue)
+    const [number, setNumber] = useState<number>(+localStorage.startValue)
+
+    useEffect(() => {
+        setNumber(props.startValue)
+    }, [props.startValue])
+
 
     const Increment = () => {
         if (number < props.maxValue) {
             setNumber(number + 1)
         }
-
     }
     const Reset = () => {
         setNumber(props.startValue)
@@ -23,7 +26,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
 
     const numStyle = `${number === props.maxValue ? s.window__counter__number_red : s.window__counter__number}`
     const incStyle = `${number === props.maxValue ? s.window__small__buttons_inc : undefined}`
-    const resetStyle = `${number === props.minValue ? s.window__small__buttons_reset : undefined}`
+    const resetStyle = `${number === props.startValue ? s.window__small__buttons_reset : undefined}`
     const disableInc = number === props.maxValue
     const disableReset = number === props.startValue ? true : false
 
