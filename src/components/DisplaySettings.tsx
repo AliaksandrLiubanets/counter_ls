@@ -1,5 +1,5 @@
 import s from '../styles/styles.module.css'
-import {ChangeEvent, useState} from 'react'
+import {ChangeEvent} from 'react'
 
 type DisplaySettingsPropsType = {
     setMaxValue: (value: number) => void
