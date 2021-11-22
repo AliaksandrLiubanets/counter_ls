@@ -5,6 +5,8 @@ type DisplaySettingsPropsType = {
     setMaxValue: (value: number) => void
     setStartValue: (value: number) => void
     setValueToStorage: () => void
+    maxValue: number,
+    minValue: number
 }
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
@@ -24,13 +26,13 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>max value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeMaxValueHandler} type={'number'} />
+                        <input value={props.maxValue} onChange={onChangeMaxValueHandler} type={'number'} />
                     </div>
                 </div>
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>start value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeStartValueHandler} type={'number'} />
+                        <input value={props.minValue} onChange={onChangeStartValueHandler} type={'number'} />
                     </div>
                 </div>
             </div>

@@ -1,40 +1,46 @@
 import s from '../styles/styles.module.css'
 import {useEffect, useState} from 'react'
+import {DisplayCounterData} from '../App'
 
 type DisplayCounterPropsType = {
-    maxValue: number
-    startValue: number
+    display: DisplayCounterData
 }
 
 function DisplayCounter(props: DisplayCounterPropsType) {
 
-    const [number, setNumber] = useState<number>(props.startValue)
+    const { max, min } = props.display
+
+    const [number, setNumber] = useState<number | null>(min)
 
     useEffect(() => {
-        setNumber(props.startValue)
-    }, [props.startValue])
+        setNumber(min)
+    }, [min])
 
 
     const Increment = () => {
-        if (number < props.maxValue) {
+        if (number && max && (number < max)) {
             setNumber(number + 1)
         }
     }
     const Reset = () => {
-        setNumber(props.startValue)
+        setNumber(min)
     }
 
-    const numStyle = `${number === props.maxValue ? s.window__counter__number_red : s.window__counter__number}`
-    const incStyle = `${number === props.maxValue ? s.window__small__buttons_inc : undefined}`
-    const resetStyle = `${number === props.startValue ? s.window__small__buttons_reset : undefined}`
-    const disableInc = number === props.maxValue
-    const disableReset = number === props.startValue ? true : false
+    const numStyle = `${number === max ? s.window__counter__number_red : s.window__counter__number}`
+    const incStyle = `${number === max ? s.window__small__buttons_inc : undefined}`
+    const resetStyle = `${number === min ? s.window__small__buttons_reset : undefined}`
+    const disableInc = number === max
+    const disableReset = number === min
 
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
             <div className={s.window__counter}>
-                <div className={numStyle}>{number}</div>
+                {
+                    !min
+                        ? <div>Change values and press set</div>
+                        :  <div className={numStyle}>{number}</div>
+                }
             </div>
 
         </div>
