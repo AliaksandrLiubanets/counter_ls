@@ -8,7 +8,7 @@ type DisplayCounterPropsType = {
 
 function DisplayCounter(props: DisplayCounterPropsType) {
 
-    const [number, setNumber] = useState<number>(+localStorage.startValue)
+    const [number, setNumber] = useState<number>(props.startValue)
 
     useEffect(() => {
         setNumber(props.startValue)

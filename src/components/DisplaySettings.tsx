@@ -11,15 +11,7 @@ type DisplaySettingsPropsType = {
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
 
-    // const [maxValue, setMaxValue] = useState<number>(0)
-    // const [startValue, setStartValue] = useState<number>(0)
-
-    // const setValueToStorage = () => {
-    //     props.setMaxValueToLocalStorage(maxValue)
-    //     props.setStartValueToLocalStorage(startValue)
-    // }
-
-    const setValueToStorage = () => {
+   const setValueToStorage = () => {
         props.setValueToStorage()
     }
 
