@@ -2,8 +2,6 @@ import s from '../styles/styles.module.css'
 import {ChangeEvent, useState} from 'react'
 
 type DisplaySettingsPropsType = {
-    // setMaxValueToLocalStorage: (value: number) => void
-    // setStartValueToLocalStorage: (value: number) => void
     setMaxValue: (value: number) => void
     setStartValue: (value: number) => void
     setValueToStorage: () => void
