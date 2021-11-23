@@ -15,7 +15,6 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
         props.setValueToStorage()
     }
 
-
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => props.setMaxValue(Number(e.currentTarget.value))
 
     const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => props.setStartValue(Number(e.currentTarget.value))
