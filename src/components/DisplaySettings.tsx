@@ -5,18 +5,26 @@ type DisplaySettingsPropsType = {
     setMaxValue: (value: number) => void
     setStartValue: (value: number) => void
     setValueToStorage: () => void
+    setEditMode: (editMode: boolean) => void
 }
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
 
    const setValueToStorage = () => {
         props.setValueToStorage()
+       props.setEditMode(false)
     }
 
 
-    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => props.setMaxValue(Number(e.currentTarget.value))
+    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) =>{
+        props.setEditMode(true)
+        props.setMaxValue(Number(e.currentTarget.value))
+   }
 
-    const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => props.setStartValue(Number(e.currentTarget.value))
+    const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
+       props.setEditMode(true)
+       props.setStartValue(Number(e.currentTarget.value))
+   }
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>

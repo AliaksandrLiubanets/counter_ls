@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react'
 type DisplayCounterPropsType = {
     maxValue: number
     startValue: number
+    editMode: boolean
 }
 
 function DisplayCounter(props: DisplayCounterPropsType) {
@@ -34,7 +35,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     return <div className={s.window__frame}>
         <div className={s.window__large}>
             <div className={s.window__counter}>
-                <div className={numStyle}>{number}</div>
+                <div className={numStyle}>{props.editMode ? 'set startValue' : number}</div>
             </div>
 
         </div>
