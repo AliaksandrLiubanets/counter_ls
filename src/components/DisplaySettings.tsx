@@ -10,21 +10,20 @@ type DisplaySettingsPropsType = {
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
 
-   const setValueToStorage = () => {
+    const setValueToStorage = () => {
         props.setValueToStorage()
-       props.setEditMode(false)
+        props.setEditMode(false)
     }
 
-
-    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) =>{
+    const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         props.setEditMode(true)
         props.setMaxValue(Number(e.currentTarget.value))
-   }
+    }
 
     const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
-       props.setEditMode(true)
-       props.setStartValue(Number(e.currentTarget.value))
-   }
+        props.setEditMode(true)
+        props.setStartValue(Number(e.currentTarget.value))
+    }
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
@@ -32,22 +31,25 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>max value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeMaxValueHandler} type={'number'} />
+                        <input onChange={onChangeMaxValueHandler} type={'number'}/>
                     </div>
                 </div>
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>start value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeStartValueHandler} type={'number'} />
+                        <input onChange={onChangeStartValueHandler} type={'number'}/>
                     </div>
                 </div>
             </div>
         </div>
         <div className={s.window__small}>
-            <div ><button className={undefined} disabled={undefined} onClick={setValueToStorage}>set</button></div>
+            <div>
+                <button className={undefined} disabled={undefined} onClick={setValueToStorage}>set</button>
+            </div>
         </div>
     </div>
 }
+
 export default DisplaySettings
 
 type InputPropsType = {

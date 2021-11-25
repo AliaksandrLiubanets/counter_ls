@@ -5,7 +5,6 @@ import DisplaySettings from './components/DisplaySettings'
 
 function App() {
 
-
     const [maxValue, setMaxValue] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0)
 
@@ -16,15 +15,9 @@ function App() {
         setStartValue(Number(localStorage.getItem('startValue')))
     }, [])
 
-    // const maxValueStr = +localStorage.maxValue
-
-    // let start = +localStorage.startValue
-
     const setValueToStorage = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
         localStorage.setItem('startValue', JSON.stringify(startValue))
-        // setStartValue(start)
-
     }
 
     return (

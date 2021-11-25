@@ -29,7 +29,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     const incStyle = `${number === props.maxValue ? s.window__small__buttons_inc : undefined}`
     const resetStyle = `${number === props.startValue ? s.window__small__buttons_reset : undefined}`
     const disableInc = number === props.maxValue
-    const disableReset = number === props.startValue ? true : false
+    const disableReset = number === props.startValue
 
 
     return <div className={s.window__frame}>
