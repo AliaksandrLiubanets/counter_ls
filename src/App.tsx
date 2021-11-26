@@ -26,6 +26,9 @@ function App() {
                              setStartValue={setStartValue}
                              setValueToStorage={setValueToStorage}
                              setEditMode={setEditMode}
+                             maxValue={maxValue}
+                             startValue={startValue}
+                             editMode={editMode}
             />
             <DisplayCounter editMode={editMode} maxValue={maxValue} startValue={startValue}/>
         </div>

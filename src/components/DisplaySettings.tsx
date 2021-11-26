@@ -6,6 +6,9 @@ type DisplaySettingsPropsType = {
     setStartValue: (value: number) => void
     setValueToStorage: () => void
     setEditMode: (editMode: boolean) => void
+    maxValue: number
+    startValue: number
+    editMode: boolean
 }
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
@@ -25,26 +28,33 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
         props.setStartValue(Number(e.currentTarget.value))
     }
 
+    const setStyle = `${props.editMode && props.startValue < 0 && s.button__disabled}`
+    const isDisabled = props.editMode && props.startValue < 0 && true
+
     return <div className={s.window__frame}>
         <div className={s.window__large}>
             <div className={s.window__settings}>
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>max value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeMaxValueHandler} type={'number'}/>
+                        <input onChange={onChangeMaxValueHandler}
+                               value={props.maxValue}
+                               type={'number'}/>
                     </div>
                 </div>
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>start value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeStartValueHandler} type={'number'}/>
+                        <input onChange={onChangeStartValueHandler}
+                               value={props.startValue}
+                               type={'number'}/>
                     </div>
                 </div>
             </div>
         </div>
         <div className={s.window__small}>
             <div>
-                <button className={undefined} disabled={undefined} onClick={setValueToStorage}>set</button>
+                <button className={setStyle} disabled={isDisabled} onClick={setValueToStorage}>set</button>
             </div>
         </div>
     </div>
