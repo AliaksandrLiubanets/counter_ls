@@ -28,8 +28,8 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
         props.setStartValue(Number(e.currentTarget.value))
     }
 
-    const setStyle = `${props.editMode && props.startValue < 0 && s.button__disabled}`
-    const isDisabled = props.editMode && props.startValue < 0 && true
+    const setStyle = `${((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && s.button__disabled}`
+    const isDisabled = ((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && true
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
