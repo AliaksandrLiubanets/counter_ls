@@ -31,7 +31,6 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     const numStyle = `${number === props.maxValue ? s.window__counter__number_red : s.window__counter__number}`
     const incStyle = `${number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue? s.window__small__buttons_inc : undefined}`
     const resetStyle = `${number === props.startValue ? s.window__small__buttons_reset : undefined}`
-    const disableReset = number === props.startValue
 
     const TextOrNumber = () => {
         if (props.editMode && props.startValue < 0) {
@@ -56,7 +55,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
                     <button className={incStyle}  onClick={Increment}>inc</button>
                 </div>
                 <div>
-                    <button className={resetStyle} disabled={disableReset} onClick={Reset}>reset</button>
+                    <button className={resetStyle}  onClick={Reset}>reset</button>
                 </div>
             </div>
         </div>
