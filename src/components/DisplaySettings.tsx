@@ -33,7 +33,9 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
     }
 
     const setStyle = `${((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && s.button__disabled}`
-    // const isDisabled = ((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && true
+
+    const inputMaxStyle = `${(props.maxValue < 0 || props.maxValue === props.startValue) && s.window__input_error}`
+    const inputStartStyle = `${(props.startValue < 0 || props.maxValue === props.startValue) && s.window__input_error}`
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
@@ -41,7 +43,8 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>max value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeMaxValueHandler}
+                        <input className={inputMaxStyle}
+                               onChange={onChangeMaxValueHandler}
                                value={props.maxValue}
                                type={'number'}/>
                     </div>
@@ -49,7 +52,8 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                 <div className={s.window__settings__box}>
                     <div className={s.window__settings__value}>start value:</div>
                     <div className={s.window__input}>
-                        <input onChange={onChangeStartValueHandler}
+                        <input className={inputStartStyle}
+                               onChange={onChangeStartValueHandler}
                                value={props.startValue}
                                type={'number'}/>
                     </div>
