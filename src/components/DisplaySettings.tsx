@@ -14,8 +14,12 @@ type DisplaySettingsPropsType = {
 function DisplaySettings(props: DisplaySettingsPropsType) {
 
     const setValueToStorage = () => {
-        props.setValueToStorage()
-        props.setEditMode(false)
+        if (props.editMode) {
+            if (props.startValue > 0 && props.maxValue > props.startValue) {
+                props.setValueToStorage()
+                props.setEditMode(false)
+            }
+        }
     }
 
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +33,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
     }
 
     const setStyle = `${((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && s.button__disabled}`
-    const isDisabled = ((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && true
+    // const isDisabled = ((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && true
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
@@ -54,23 +58,10 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
         </div>
         <div className={s.window__small}>
             <div>
-                <button className={setStyle} disabled={isDisabled} onClick={setValueToStorage}>set</button>
+                <button className={setStyle} onClick={setValueToStorage}>set</button>
             </div>
         </div>
     </div>
 }
 
 export default DisplaySettings
-
-type InputPropsType = {
-    onChangeHandler: () => void
-}
-
-// function Input(props: InputPropsType) {
-//
-//     const onChangeValueHandler = (e: number) => {
-//
-//     }
-//
-//     return <div className={s.window__input}><input onChange={onChangeValueHandler} type={'number'} /></div>
-// }
