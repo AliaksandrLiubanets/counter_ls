@@ -3,52 +3,21 @@ import './App.css'
 import DisplayCounter from './components/DisplayCounter'
 import DisplaySettings from './components/DisplaySettings'
 
-enum StorageKeys {
-    MAX_VALUE = 'maxValue',
-    START_VALUE = 'startValue'
-}
-
-const getValuesFromStorage = (): {max: number, start: number } => {
-
-    const max = localStorage.getItem(StorageKeys.MAX_VALUE)
-    const start = localStorage.getItem(StorageKeys.START_VALUE)
-
-    return {
-        max: max ? +max : 0,
-        start: start ? +start : 0
-    }
-}
-
-const setValuesToStorage = (setting: {max: number, start: number}) => {
-    localStorage.setItem(StorageKeys.MAX_VALUE, JSON.stringify(setting.max))
-    localStorage.setItem(StorageKeys.START_VALUE, JSON.stringify(setting.start))
-}
-
-export type DisplayCounterData = {
-    max: number | null
-    min: number | null
-}
-
 function App() {
 
     const [maxValue, setMaxValue] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0)
 
-    const [display, setDisplay] = useState<DisplayCounterData>({
-        max: null,
-        min: null
-    })
+    const [editMode, setEditMode] = useState<boolean>(false)
 
     useEffect(() => {
-        const settings = getValuesFromStorage()
-        setMaxValue(settings.max)
-        setStartValue(settings.start)
+        setMaxValue(Number(localStorage.getItem('maxValue')))
+        setStartValue(Number(localStorage.getItem('startValue')))
     }, [])
 
-
     const setValueToStorage = () => {
-        setValuesToStorage({ max: maxValue, start: startValue })
-        setDisplay({ min: startValue, max: maxValue })
+        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+        localStorage.setItem('startValue', JSON.stringify(startValue))
     }
 
     return (
@@ -56,12 +25,12 @@ function App() {
             <DisplaySettings setMaxValue={setMaxValue}
                              setStartValue={setStartValue}
                              setValueToStorage={setValueToStorage}
+                             setEditMode={setEditMode}
                              maxValue={maxValue}
-                             minValue={startValue}
+                             startValue={startValue}
+                             editMode={editMode}
             />
-            <DisplayCounter
-                display={display}
-            />
+            <DisplayCounter editMode={editMode} maxValue={maxValue} startValue={startValue}/>
         </div>
     )
 }
