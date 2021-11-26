@@ -1,5 +1,6 @@
 import s from '../styles/styles.module.css'
 import {useEffect, useState} from 'react'
+import {Button} from './Button'
 
 type DisplayCounterPropsType = {
     maxValue: number
@@ -51,12 +52,8 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         </div>
         <div className={s.window__small}>
             <div className={s.window__small__buttons}>
-                <div>
-                    <button className={incStyle} onClick={Increment}>inc</button>
-                </div>
-                <div>
-                    <button className={resetStyle} onClick={Reset}>reset</button>
-                </div>
+                <Button title={'inc'} handler={Increment} style={incStyle} />
+                <Button title={'reset'} handler={Reset} style={resetStyle} />
             </div>
         </div>
     </div>

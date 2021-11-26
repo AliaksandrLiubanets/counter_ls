@@ -1,5 +1,6 @@
 import s from '../styles/styles.module.css'
 import {ChangeEvent} from 'react'
+import {Button} from './Button'
 
 type DisplaySettingsPropsType = {
     setMaxValue: (value: number) => void
@@ -61,9 +62,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
             </div>
         </div>
         <div className={s.window__small}>
-            <div>
-                <button className={setStyle} onClick={setValueToStorage}>set</button>
-            </div>
+            <Button title={"set"} handler={setValueToStorage} style={setStyle} />
         </div>
     </div>
 }
