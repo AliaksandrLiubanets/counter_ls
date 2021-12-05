@@ -1,3 +1,9 @@
+.first__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .window__frame {
     display: flex;
     flex-direction: column;
@@ -52,8 +58,6 @@
     justify-content: center;
     align-items: center;
 }
-
-
 
 .window__small__buttons {
     display: grid;
