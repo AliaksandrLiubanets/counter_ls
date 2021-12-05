@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
-import DisplayCounter from './components/DisplayCounter'
-import DisplaySettings from './components/DisplaySettings'
 import {FirstVariant} from './components/FirstVariant'
 
 function App() {
@@ -21,7 +19,7 @@ function App() {
         localStorage.setItem('startValue', JSON.stringify(startValue))
     }
 
-    return (
+    return <div className='App'>
         <FirstVariant setMaxValue={setMaxValue}
                       setStartValue={setStartValue}
                       setValueToStorage={setValueToStorage}
@@ -30,18 +28,8 @@ function App() {
                       startValue={startValue}
                       editMode={editMode}
         />
-        // <div className="App">
-        //     <DisplaySettings setMaxValue={setMaxValue}
-        //                      setStartValue={setStartValue}
-        //                      setValueToStorage={setValueToStorage}
-        //                      setEditMode={setEditMode}
-        //                      maxValue={maxValue}
-        //                      startValue={startValue}
-        //                      editMode={editMode}
-        //     />
-        //     <DisplayCounter editMode={editMode} maxValue={maxValue} startValue={startValue}/>
-        // </div>
-    )
+
+    </div>
 }
 
 export default App

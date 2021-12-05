@@ -1,3 +1,3 @@
 export function SecondVariant() {
-    return <div></div>
+    return <div>second</div>
 }
