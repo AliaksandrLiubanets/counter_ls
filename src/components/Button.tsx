@@ -1,7 +1,7 @@
 type ButtonPropsType = {
     title: string
     handler: () => void
-    style: string
+    style: string | undefined
 }
 
 export function Button({title, style, handler}: ButtonPropsType) {

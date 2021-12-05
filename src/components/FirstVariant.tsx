@@ -11,9 +11,11 @@ type PropsType = {
     maxValue: number
     startValue: number
     editMode: boolean
+    isSecondVariant: boolean
+    // setIsSecondVariant: (isSecond: boolean) => void
 }
 
-export function FirstVariant({setMaxValue, setStartValue, setValueToStorage, setEditMode, maxValue, startValue, editMode}: PropsType) {
+export function FirstVariant({setMaxValue, setStartValue, setValueToStorage, setEditMode, maxValue, startValue, editMode, isSecondVariant}: PropsType) {
     return <div className={s.first__block}>
         <DisplaySettings setMaxValue={setMaxValue}
                          setStartValue={setStartValue}
@@ -23,6 +25,11 @@ export function FirstVariant({setMaxValue, setStartValue, setValueToStorage, set
                          startValue={startValue}
                          editMode={editMode}
         />
-        <DisplayCounter editMode={editMode} maxValue={maxValue} startValue={startValue}/>
+        <DisplayCounter editMode={editMode}
+                        maxValue={maxValue}
+                        startValue={startValue}
+                        isSecondVariant={isSecondVariant}
+                        // setIsSecondVariant={setIsSecondVariant}
+        />
     </div>
 }

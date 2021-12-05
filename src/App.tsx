@@ -3,7 +3,7 @@ import './App.css'
 import s from './styles/styles.module.css'
 import {FirstVariant} from './components/FirstVariant'
 import {Link, Route, Routes} from 'react-router-dom'
-import {SecondVariant} from './components/SecondVariant'
+import DisplayCounter from './components/DisplayCounter'
 
 function App() {
 
@@ -11,6 +11,8 @@ function App() {
     const [startValue, setStartValue] = useState<number>(0)
 
     const [editMode, setEditMode] = useState<boolean>(false)
+
+    const [isSecondVariant, setIsSecondVariant] = useState<boolean>(false)
 
     useEffect(() => {
         setMaxValue(Number(localStorage.getItem('maxValue')))
@@ -24,28 +26,36 @@ function App() {
 
     return <div className="App">
         <div className={s.header}>
-            <span><Link to="/">first variant</Link></span><span><Link to="/second">second variant</Link></span>
+                <Link to="/">
+                    <span>first variant</span>
+                </Link>
+                <Link to="/second">
+                    <span>second variant</span>
+                </Link>
         </div>
         <div className={s.content}>
             <Routes>
-                <Route path="/" element={<FirstVariant setMaxValue={setMaxValue}
-                                                       setStartValue={setStartValue}
-                                                       setValueToStorage={setValueToStorage}
-                                                       setEditMode={setEditMode}
-                                                       maxValue={maxValue}
-                                                       startValue={startValue}
-                                                       editMode={editMode} />}
+                <Route path="/" element={<FirstVariant
+                    setMaxValue={setMaxValue}
+                    setStartValue={setStartValue}
+                    setValueToStorage={setValueToStorage}
+                    setEditMode={setEditMode}
+                    maxValue={maxValue}
+                    startValue={startValue}
+                    editMode={editMode}
+                    isSecondVariant={isSecondVariant}
+                    // setIsSecondVariant={setIsSecondVariant}
+                />}
                 />
-                <Route path="/second" element={<SecondVariant/>}/>
+                <Route path="/counter" element={<DisplayCounter
+                    editMode={editMode}
+                    maxValue={maxValue}
+                    startValue={startValue}
+                    isSecondVariant={isSecondVariant}
+                    // setIsSecondVariant={setIsSecondVariant}
+                />}
+                />
             </Routes>
-            {/*<FirstVariant setMaxValue={setMaxValue}*/}
-            {/*              setStartValue={setStartValue}*/}
-            {/*              setValueToStorage={setValueToStorage}*/}
-            {/*              setEditMode={setEditMode}*/}
-            {/*              maxValue={maxValue}*/}
-            {/*              startValue={startValue}*/}
-            {/*              editMode={editMode}*/}
-            {/*/>*/}
         </div>
 
     </div>
