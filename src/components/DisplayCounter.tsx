@@ -8,7 +8,6 @@ type DisplayCounterPropsType = {
     startValue: number
     editMode: boolean
     isSecondVariant: boolean
-    // setIsSecondVariant: (isSecond: boolean) => void
 }
 
 function DisplayCounter(props: DisplayCounterPropsType) {
@@ -60,7 +59,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
                 <Button title={'reset'} handler={Reset} style={resetStyle}/>
                 {
                     props.isSecondVariant &&
-                    <Link to={'/settings'}>
+                    <Link className={s.window__small__link} to={'/settings'}>
                         <Button title={'set'} handler={redirectToCounter} style={undefined}/>
                     </Link>
                 }

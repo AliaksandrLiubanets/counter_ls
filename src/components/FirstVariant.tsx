@@ -12,7 +12,6 @@ type PropsType = {
     startValue: number
     editMode: boolean
     isSecondVariant: boolean
-    // setIsSecondVariant: (isSecond: boolean) => void
 }
 
 export function FirstVariant({setMaxValue, setStartValue, setValueToStorage, setEditMode, maxValue, startValue, editMode, isSecondVariant}: PropsType) {
@@ -30,7 +29,6 @@ export function FirstVariant({setMaxValue, setStartValue, setValueToStorage, set
                         maxValue={maxValue}
                         startValue={startValue}
                         isSecondVariant={isSecondVariant}
-                        // setIsSecondVariant={setIsSecondVariant}
         />
     </div>
 }

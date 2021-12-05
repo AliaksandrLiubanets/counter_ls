@@ -10,9 +10,7 @@ function App() {
 
     const [maxValue, setMaxValue] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0)
-
     const [editMode, setEditMode] = useState<boolean>(false)
-
     const [isSecondVariant, setIsSecondVariant] = useState<boolean>(false)
 
     useEffect(() => {
@@ -25,6 +23,8 @@ function App() {
         localStorage.setItem('startValue', JSON.stringify(startValue))
     }
 
+    const contentStyle = `${isSecondVariant ? s.contentCenter : s.content}`
+
     return <div className="App">
         <div className={s.header}>
             <Link to="/">
@@ -34,7 +34,7 @@ function App() {
                 <span onClick={() => setIsSecondVariant(true)}>second variant</span>
             </Link>
         </div>
-        <div className={s.content}>
+        <div className={contentStyle}>
             <Routes>
                 <Route path="/" element={<FirstVariant
                     setMaxValue={setMaxValue}
@@ -67,7 +67,6 @@ function App() {
                 />
             </Routes>
         </div>
-
     </div>
 }
 
