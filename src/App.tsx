@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
+import s from './styles/styles.module.css'
 import {FirstVariant} from './components/FirstVariant'
 
 function App() {
@@ -19,15 +20,20 @@ function App() {
         localStorage.setItem('startValue', JSON.stringify(startValue))
     }
 
-    return <div className='App'>
-        <FirstVariant setMaxValue={setMaxValue}
-                      setStartValue={setStartValue}
-                      setValueToStorage={setValueToStorage}
-                      setEditMode={setEditMode}
-                      maxValue={maxValue}
-                      startValue={startValue}
-                      editMode={editMode}
-        />
+    return <div className="App">
+        <div className={s.header}>Header
+
+        </div>
+        <div className={s.content}>
+            <FirstVariant setMaxValue={setMaxValue}
+                          setStartValue={setStartValue}
+                          setValueToStorage={setValueToStorage}
+                          setEditMode={setEditMode}
+                          maxValue={maxValue}
+                          startValue={startValue}
+                          editMode={editMode}
+            />
+        </div>
 
     </div>
 }
