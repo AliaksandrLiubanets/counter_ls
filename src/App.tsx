@@ -4,6 +4,7 @@ import s from './styles/styles.module.css'
 import {FirstVariant} from './components/FirstVariant'
 import {Link, Route, Routes} from 'react-router-dom'
 import DisplayCounter from './components/DisplayCounter'
+import DisplaySettings from './components/DisplaySettings'
 
 function App() {
 
@@ -26,12 +27,12 @@ function App() {
 
     return <div className="App">
         <div className={s.header}>
-                <Link to="/">
-                    <span>first variant</span>
-                </Link>
-                <Link to="/second">
-                    <span>second variant</span>
-                </Link>
+            <Link to="/">
+                <span>first variant</span>
+            </Link>
+            <Link to="/counter">
+                <span onClick={() => setIsSecondVariant(true)}>second variant</span>
+            </Link>
         </div>
         <div className={s.content}>
             <Routes>
@@ -44,7 +45,6 @@ function App() {
                     startValue={startValue}
                     editMode={editMode}
                     isSecondVariant={isSecondVariant}
-                    // setIsSecondVariant={setIsSecondVariant}
                 />}
                 />
                 <Route path="/counter" element={<DisplayCounter
@@ -52,7 +52,17 @@ function App() {
                     maxValue={maxValue}
                     startValue={startValue}
                     isSecondVariant={isSecondVariant}
-                    // setIsSecondVariant={setIsSecondVariant}
+                />}
+                />
+                <Route path="/settings" element={<DisplaySettings
+                    setMaxValue={setMaxValue}
+                    setStartValue={setStartValue}
+                    setValueToStorage={setValueToStorage}
+                    setEditMode={setEditMode}
+                    maxValue={maxValue}
+                    startValue={startValue}
+                    editMode={editMode}
+                    isSecondVariant={isSecondVariant}
                 />}
                 />
             </Routes>

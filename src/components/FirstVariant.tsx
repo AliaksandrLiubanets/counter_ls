@@ -24,6 +24,7 @@ export function FirstVariant({setMaxValue, setStartValue, setValueToStorage, set
                          maxValue={maxValue}
                          startValue={startValue}
                          editMode={editMode}
+                         isSecondVariant={isSecondVariant}
         />
         <DisplayCounter editMode={editMode}
                         maxValue={maxValue}

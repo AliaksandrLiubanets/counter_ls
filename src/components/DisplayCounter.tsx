@@ -60,7 +60,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
                 <Button title={'reset'} handler={Reset} style={resetStyle}/>
                 {
                     props.isSecondVariant &&
-                    <Link to={'/counter'}>
+                    <Link to={'/settings'}>
                         <Button title={'set'} handler={redirectToCounter} style={undefined}/>
                     </Link>
                 }

@@ -2,6 +2,7 @@ import s from '../styles/styles.module.css'
 import {ChangeEvent} from 'react'
 import {Button} from './Button'
 import {Input} from './Input'
+import {Link} from 'react-router-dom'
 
 type DisplaySettingsPropsType = {
     setMaxValue: (value: number) => void
@@ -11,6 +12,7 @@ type DisplaySettingsPropsType = {
     maxValue: number
     startValue: number
     editMode: boolean
+    isSecondVariant: boolean
 }
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
@@ -61,7 +63,17 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
             </div>
         </div>
         <div className={s.window__small}>
-            <Button title={'set'} handler={setValueToStorage} style={setStyle}/>
+            {
+                props.isSecondVariant
+                    ? <Link to={'/counter'}>
+                        <Button title={'set'}
+                                handler={setValueToStorage}
+                                style={setStyle}/>
+                    </Link>
+                    : <Button title={'set'}
+                              handler={setValueToStorage}
+                              style={setStyle}/>
+            }
         </div>
     </div>
 }
