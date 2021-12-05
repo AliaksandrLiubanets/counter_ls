@@ -6,12 +6,12 @@
     text-align: center;
 }
 
-.header span {
+.header a {
     display: inline-block;
     margin-right: 40px;
     text-transform: uppercase;
 }
-.header span:last-child {
+.header a:last-child {
     margin-right: 0;
 }
 

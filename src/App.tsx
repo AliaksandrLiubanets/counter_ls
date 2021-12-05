@@ -28,7 +28,7 @@ function App() {
     return <div className="App">
         <div className={s.header}>
             <Link to="/">
-                <span>first variant</span>
+                <span onClick={() => setIsSecondVariant(false)}>first variant</span>
             </Link>
             <Link to="/counter">
                 <span onClick={() => setIsSecondVariant(true)}>second variant</span>
