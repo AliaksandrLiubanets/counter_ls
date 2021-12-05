@@ -5,6 +5,16 @@
     font-weight: 600;
     text-align: center;
 }
+
+.header span {
+    display: inline-block;
+    margin-right: 40px;
+    text-transform: uppercase;
+}
+.header span:last-child {
+    margin-right: 0;
+}
+
 .content {
     margin-top: 30px;
     padding: 30px;
