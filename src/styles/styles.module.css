@@ -30,7 +30,9 @@
 .first__block {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    max-width: 1068px;
+    width: 100%;
 }
 
 .window__frame {
