@@ -1,7 +1,7 @@
 import s from '../styles/styles.module.css'
 import {useEffect, useState} from 'react'
 import {Button} from './Button'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 type DisplayCounterPropsType = {
     maxValue: number
@@ -35,6 +35,8 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     const incStyle = `${number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue ? s.window__small__buttons_inc : undefined}`
     const resetStyle = `${number === props.startValue ? s.window__small__buttons_reset : undefined}`
 
+    const navigate = useNavigate()
+
     const WarningOrNumber = () => {
         if (props.editMode) {
             if (props.startValue < 0 || props.maxValue < 0 || props.startValue === props.maxValue) {
@@ -45,7 +47,9 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         return <div className={numStyle}>{number}</div>
     }
 
-    const emptyHandler = () => true
+    const emptyHandler = () => {
+        navigate("/settings",{state:{title:"Test"}})
+    }
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
@@ -60,7 +64,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
                 {
                     props.isSecondVariant &&
                     <Link className={s.window__small__link} to={'/settings'}>
-                        <Button title={'set'} handler={emptyHandler} style={undefined}/>
+                        <Button title={'set'} handler={emptyHandler} />
                     </Link>
                 }
             </div>

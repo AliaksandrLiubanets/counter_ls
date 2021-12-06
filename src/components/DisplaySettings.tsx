@@ -2,7 +2,7 @@ import s from '../styles/styles.module.css'
 import {ChangeEvent} from 'react'
 import {Button} from './Button'
 import {Input} from './Input'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 
 type DisplaySettingsPropsType = {
     setMaxValue: (value: number) => void
@@ -16,6 +16,8 @@ type DisplaySettingsPropsType = {
 }
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
+    const location = useLocation()
+    console.log(location.state)
 
     const setValueToStorage = () => {
         if (props.editMode) {
