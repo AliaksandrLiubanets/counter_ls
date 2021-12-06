@@ -1,12 +1,12 @@
 type ButtonPropsType = {
     title: string
-    handler?: () => void
-    style?: string
+    handler: () => void
+    buttonStyle: string
 }
 
-export function Button({title, style, handler}: ButtonPropsType) {
+export function Button({title, buttonStyle, handler}: ButtonPropsType) {
     return <div>
-        <button className={style||""} onClick={handler}>
+        <button className={buttonStyle||""} onClick={handler}>
             {title}
         </button>
     </div>
