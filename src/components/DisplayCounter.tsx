@@ -45,7 +45,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         return <div className={numStyle}>{number}</div>
     }
 
-    const redirectToCounter = () => true
+    const emptyHandler = () => true
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
@@ -60,7 +60,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
                 {
                     props.isSecondVariant &&
                     <Link className={s.window__small__link} to={'/settings'}>
-                        <Button title={'set'} handler={redirectToCounter} style={undefined}/>
+                        <Button title={'set'} handler={emptyHandler} style={undefined}/>
                     </Link>
                 }
             </div>

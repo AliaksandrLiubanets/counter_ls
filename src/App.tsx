@@ -16,11 +16,16 @@ function App() {
     useEffect(() => {
         setMaxValue(Number(localStorage.getItem('maxValue')))
         setStartValue(Number(localStorage.getItem('startValue')))
+        const booleanValue = localStorage.getItem('isSecondVariant')
+        booleanValue && setIsSecondVariant(JSON.parse(booleanValue))
     }, [])
 
     const setValueToStorage = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
         localStorage.setItem('startValue', JSON.stringify(startValue))
+        if(isSecondVariant) {
+            localStorage.setItem('isSecondVariant', JSON.stringify(isSecondVariant))
+        }
     }
 
     const contentStyle = `${isSecondVariant ? s.contentCenter : s.content}`
