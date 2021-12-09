@@ -35,8 +35,6 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     const incStyle = props.editMode || number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue ? s.window__small__buttons_inc : ""
     const resetStyle = number === props.startValue ? s.window__small__buttons_reset : ""
 
-    // const navigate = useNavigate()
-
     const WarningOrNumber = () => {
         const isCorrectValue = props.startValue < 0 || props.maxValue <= props.startValue
         if (props.editMode) {
