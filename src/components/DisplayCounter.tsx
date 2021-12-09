@@ -20,11 +20,11 @@ function DisplayCounter(props: DisplayCounterPropsType) {
 
 
     const Increment = () => {
-        if (number < props.maxValue) {
-            if (props.startValue < props.maxValue && props.startValue >= 0) {
-                setNumber(number + 1)
-            }
-        }
+        const conditionIncrement = number < props.maxValue
+            && props.startValue < props.maxValue
+            && props.startValue >= 0
+
+        conditionIncrement && setNumber(number + 1)
     }
 
     const Reset = () => {

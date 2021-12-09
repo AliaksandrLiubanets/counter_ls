@@ -23,13 +23,17 @@ function App() {
     const setValueToStorage = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue))
         localStorage.setItem('startValue', JSON.stringify(startValue))
-        if(isSecondVariant) {
-            localStorage.setItem('isSecondVariant', JSON.stringify(isSecondVariant))
-        }
+        localStorage.setItem('isSecondVariant', JSON.stringify(isSecondVariant))
     }
 
-    const offSetVariant = () => setIsSecondVariant(false)
-    const onSetVariant = () => setIsSecondVariant(true)
+    const offSetVariant = () => {
+        setIsSecondVariant(false)
+        localStorage.setItem('isSecondVariant', JSON.stringify(false))
+    }
+    const onSetVariant = () => {
+        setIsSecondVariant(true)
+        localStorage.setItem('isSecondVariant', JSON.stringify(true))
+    }
 
     const contentStyle = `${isSecondVariant ? s.contentCenter : s.content}`
 

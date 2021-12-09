@@ -18,11 +18,14 @@ type DisplaySettingsPropsType = {
 function DisplaySettings(props: DisplaySettingsPropsType) {
 
     const setValueToStorage = () => {
-        if (props.editMode) {
-            if ( props.startValue >= 0 && props.maxValue > props.startValue) {
-                props.setValueToStorage()
-                props.setEditMode(false)
-            }
+
+        const conditionSetToStorage = props.editMode
+            && props.startValue >= 0
+            && props.maxValue > props.startValue
+
+        if (conditionSetToStorage) {
+            props.setValueToStorage()
+            props.setEditMode(false)
         }
     }
 
