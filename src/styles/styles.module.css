@@ -4,7 +4,8 @@
     font-size: 24px;
     font-weight: 600;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .header a {
@@ -12,8 +13,13 @@
     text-transform: uppercase;
 }
 
+.header a:first-child {
+    margin-left: 30px;
+}
+
 .header a:last-child {
     margin-right: 0;
+    margin-left: 20px;
 }
 
 .content {
