@@ -39,10 +39,11 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
         props.setStartValue(Number(e.currentTarget.value))
     }
 
-    const setStyle = `${((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && s.button__disabled}`
+    const isUnCorrectValue = props.startValue < 0 || props.startValue >= props.maxValue
 
-    const inputMaxStyle = `${(props.maxValue < 0 || props.maxValue === props.startValue) && s.window__input_error}`
-    const inputStartStyle = `${(props.startValue < 0 || props.maxValue === props.startValue) && s.window__input_error}`
+    const setStyle = `${isUnCorrectValue && s.button__disabled}`
+    const inputMaxStyle = `${(props.maxValue < 0 || props.maxValue <= props.startValue) && s.window__input_error}`
+    const inputStartStyle = `${isUnCorrectValue && s.window__input_error}`
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
@@ -60,7 +61,6 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                         start value:
                     </div>
                     <Input className={inputStartStyle}
-
                            handler={onChangeStartValueHandler}
                            value={props.startValue}/>
                 </div>
