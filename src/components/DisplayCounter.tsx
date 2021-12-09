@@ -32,7 +32,7 @@ function DisplayCounter(props: DisplayCounterPropsType) {
     }
 
     const numStyle = number === props.maxValue ? s.window__counter__number_red : s.window__counter__number
-    const incStyle = number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue ? s.window__small__buttons_inc : "undefined"
+    const incStyle = number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue ? s.window__small__buttons_inc : ""
     const resetStyle = number === props.startValue ? s.window__small__buttons_reset : ""
 
     // const navigate = useNavigate()

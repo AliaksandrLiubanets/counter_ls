@@ -2,14 +2,14 @@ import {ChangeEvent} from 'react'
 import s from '../styles/styles.module.css'
 
 type InputPropsType = {
-    style: string
+    className: string
     handler: (e: ChangeEvent<HTMLInputElement>) => void
     value: number
 }
 
-export function Input({style, handler, value}: InputPropsType) {
+export function Input({className, handler, value}: InputPropsType) {
     return <div className={s.window__input}>
-        <input className={style}
+        <input className={className}
                onChange={handler}
                value={value}
                type={'number'}/>
