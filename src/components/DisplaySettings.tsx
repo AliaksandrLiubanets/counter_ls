@@ -19,7 +19,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
 
     const setValueToStorage = () => {
         if (props.editMode) {
-            if (props.startValue >= 0 && props.maxValue > props.startValue) {
+            if ( props.startValue >= 0 && props.maxValue > props.startValue) {
                 props.setValueToStorage()
                 props.setEditMode(false)
             }
@@ -37,6 +37,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
     }
 
     const setStyle = `${((props.editMode && props.startValue < 0) || props.maxValue <= props.startValue) && s.button__disabled}`
+
 
     const inputMaxStyle = `${(props.maxValue < 0 || props.maxValue === props.startValue) && s.window__input_error}`
     const inputStartStyle = `${(props.startValue < 0 || props.maxValue === props.startValue) && s.window__input_error}`
@@ -57,6 +58,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                         start value:
                     </div>
                     <Input style={inputStartStyle}
+
                            handler={onChangeStartValueHandler}
                            value={props.startValue}/>
                 </div>
@@ -68,13 +70,16 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                     ? <Link to={'/counter'}>
                         <Button title={'set'}
                                 handler={setValueToStorage}
-                                buttonStyle={setStyle}/>
+                                buttonStyle={setStyle}
+                        />
                     </Link>
                     : <Button title={'set'}
                               handler={setValueToStorage}
-                              buttonStyle={setStyle}/>
+                              buttonStyle={setStyle}
+                    />
             }
         </div>
+
     </div>
 }
 

@@ -28,15 +28,18 @@ function App() {
         }
     }
 
+    const offSetVariant = () => setIsSecondVariant(false)
+    const onSetVariant = () => setIsSecondVariant(true)
+
     const contentStyle = `${isSecondVariant ? s.contentCenter : s.content}`
 
     return <div className="App">
         <div className={s.header}>
             <Link to="/">
-                <span onClick={() => setIsSecondVariant(false)}>first variant</span>
+                <span onClick={offSetVariant}>first variant</span>
             </Link>
             <Link to="/counter">
-                <span onClick={() => setIsSecondVariant(true)}>second variant</span>
+                <span onClick={onSetVariant}>second variant</span>
             </Link>
         </div>
         <div className={contentStyle}>

@@ -6,7 +6,7 @@ type ButtonPropsType = {
 
 export function Button({title, buttonStyle, handler}: ButtonPropsType) {
     return <div>
-        <button className={buttonStyle||""} onClick={handler}>
+        <button className={buttonStyle} onClick={handler}>
             {title}
         </button>
     </div>

@@ -31,9 +31,9 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         setNumber(props.startValue)
     }
 
-    const numStyle = `${number === props.maxValue ? s.window__counter__number_red : s.window__counter__number}`
-    const incStyle = `${number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue ? s.window__small__buttons_inc : undefined}`
-    const resetStyle = `${number === props.startValue ? s.window__small__buttons_reset : undefined}`
+    const numStyle = number === props.maxValue ? s.window__counter__number_red : s.window__counter__number
+    const incStyle = number === props.maxValue || props.startValue < 0 || props.maxValue <= props.startValue ? s.window__small__buttons_inc : "undefined"
+    const resetStyle = number === props.startValue ? s.window__small__buttons_reset : ""
 
     // const navigate = useNavigate()
 
@@ -46,10 +46,6 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         }
         return <div className={numStyle}>{number}</div>
     }
-
-    // const emptyHandler = () => {
-    //     navigate("/settings",{state:{title:"Test"}})
-    // }
 
     return <div className={s.window__frame}>
         <div className={s.window__large}>
