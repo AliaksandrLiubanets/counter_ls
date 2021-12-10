@@ -1,12 +1,14 @@
+import {ButtonHTMLAttributes} from 'react'
+
 type ButtonPropsType = {
     title: string
-    handler: () => void
-    buttonStyle: string
+    onClick: () => void
+    className: string
 }
 
-export function Button({title, buttonStyle, handler}: ButtonPropsType) {
+export function Button({title, ...props}: ButtonHTMLAttributes<any>) {
     return <div>
-        <button className={buttonStyle} onClick={handler}>
+        <button {...props}>
             {title}
         </button>
     </div>

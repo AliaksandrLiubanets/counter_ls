@@ -54,8 +54,8 @@ function DisplayCounter(props: DisplayCounterPropsType) {
         </div>
         <div className={s.window__small}>
             <div className={s.window__small__buttons}>
-                <Button title={'inc'} handler={Increment} buttonStyle={incStyle}/>
-                <Button title={'reset'} handler={Reset} buttonStyle={resetStyle}/>
+                <Button title={'inc'} onClick={Increment} className={incStyle}/>
+                <Button title={'reset'} onClick={Reset} className={resetStyle}/>
                 {
                     props.isSecondVariant &&
                     <Link className={s.window__small__link} to={'/settings'}>

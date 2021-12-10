@@ -53,7 +53,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                         max value:
                     </div>
                     <Input className={inputMaxStyle}
-                           handler={onChangeMaxValueHandler}
+                           onChange={onChangeMaxValueHandler}
                            value={props.maxValue}/>
                 </div>
                 <div className={s.window__settings__box}>
@@ -61,7 +61,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                         start value:
                     </div>
                     <Input className={inputStartStyle}
-                           handler={onChangeStartValueHandler}
+                           onChange={onChangeStartValueHandler}
                            value={props.startValue}/>
                 </div>
             </div>
@@ -71,13 +71,13 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
                 props.isSecondVariant
                     ? <Link to={'/counter'}>
                         <Button title={'set'}
-                                handler={setValueToStorage}
-                                buttonStyle={setStyle}
+                                onClick={setValueToStorage}
+                                className={setStyle}
                         />
                     </Link>
                     : <Button title={'set'}
-                              handler={setValueToStorage}
-                              buttonStyle={setStyle}
+                              onClick={setValueToStorage}
+                              className={setStyle}
                     />
             }
         </div>
