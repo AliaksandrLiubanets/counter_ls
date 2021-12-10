@@ -17,11 +17,11 @@ type DisplaySettingsPropsType = {
 
 function DisplaySettings(props: DisplaySettingsPropsType) {
 
-    const setValueToStorage = () => {
+    const conditionSetToStorage = props.editMode
+        && props.startValue >= 0
+        && props.maxValue > props.startValue
 
-        const conditionSetToStorage = props.editMode
-            && props.startValue >= 0
-            && props.maxValue > props.startValue
+    const setValueToStorage = () => {
 
         if (conditionSetToStorage) {
             props.setValueToStorage()
@@ -68,7 +68,7 @@ function DisplaySettings(props: DisplaySettingsPropsType) {
         </div>
         <div className={s.window__small}>
             {
-                props.isSecondVariant
+                props.isSecondVariant && conditionSetToStorage
                     ? <Link to={'/counter'}>
                         <Button title={'set'}
                                 onClick={setValueToStorage}
